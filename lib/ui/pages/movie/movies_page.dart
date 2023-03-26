@@ -1,0 +1,80 @@
+import 'package:fl_paging/fl_paging.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:newwave_project/data/datasource/remote/base_api_service.dart';
+import 'package:newwave_project/domain/entity/movie_model.dart';
+import 'package:newwave_project/ui/pages/movie/datasource/movies_datasource.dart';
+import 'package:newwave_project/ui/pages/movie/widgets/item_movie_widget.dart';
+import 'package:newwave_project/utils/functions.dart';
+import 'dart:developer' as developer;
+
+class MoviesPage extends StatefulWidget {
+  const MoviesPage({Key? key}) : super(key: key);
+
+  @override
+  State<MoviesPage> createState() => _MoviesPageState();
+}
+
+class _MoviesPageState extends State<MoviesPage> {
+  final GlobalKey key = GlobalKey();
+  late MoviesDataSource dataSource;
+
+  @override
+  void initState() {
+    super.initState();
+    dataSource = MoviesDataSource();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Back"),
+      ),
+      body: NestedScrollView(
+        headerSliverBuilder: (context, _) {
+          return [
+            SliverAppBar(
+              expandedHeight: 32,
+              collapsedHeight: kToolbarHeight,
+              floating: false,
+              automaticallyImplyLeading: false,
+              flexibleSpace: Container(
+                padding: const EdgeInsets.only(
+                  left: 16,
+                  top: 16
+                ),
+                child: const Text(
+                  "Popular list",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16),
+                ),
+              ),
+            )
+          ];
+        },
+        body: PagingGridView<MovieModel>(
+          pageDataSource: dataSource,
+          key: key,
+          itemBuilder: (context, data, child) {
+            return ItemMovieWidget(
+              imageUrl: Functions.getImageUrl(data.posterPath ?? ""),
+              year: "2000",
+              name: data.originalTitle ?? "",
+              average: data.voteAverage,
+            );
+          },
+          delegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 16,
+            crossAxisSpacing: 16,
+            childAspectRatio: 0.67,
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        ),
+      ),
+    );
+  }
+}

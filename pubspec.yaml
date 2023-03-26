@@ -16,13 +16,13 @@ dependencies:
     sdk: flutter
   flutter_bloc:
   freezed_annotation:
+  json_annotation:
   dio:
   get_it:
   collection: 1.17.0
   cupertino_icons: ^1.0.2
   cached_network_image: 3.2.3
-  fl_paging: ^2.2.0
-  tuple: 
+  tuple:
 
 dev_dependencies:
   flutter_test:
@@ -33,7 +33,6 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
-
   uses-material-design: true
 flutter_intl:
   enabled: true

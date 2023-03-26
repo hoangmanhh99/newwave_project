@@ -49,7 +49,7 @@ abstract class PageKeyedDataSource<K, D> extends DataSource<D> {
       return results?.item1 ?? [];
     } else {
       _cancelableOperation =
-          CancelableOperation.fromFuture(loadPageAfter(currentKey!, pageSize));
+          CancelableOperation.fromFuture(loadPageAfter(currentKey as K, pageSize));
       final results = await _cancelableOperation!.valueOrCancellation();
       currentKey = results?.item2;
       if (autoDetectEndList) {

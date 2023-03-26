@@ -5,7 +5,7 @@ part 'paging_state.freezed.dart';
 @freezed
 abstract class PagingState<D> with _$PagingState<D> {
   const factory PagingState(List<D> datas, bool isLoadMore, bool isEndList) =
-      PagingStateData;
+  PagingStateData;
 
   const factory PagingState.loading() = PagingStateLoading;
 

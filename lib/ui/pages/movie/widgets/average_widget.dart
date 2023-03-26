@@ -6,28 +6,54 @@ class AverageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final first = average?.toStringAsExponential() ?? "";
-    final after = (average != null) ? (average ?? 0 - average!.truncate()) : 0;
-
     return Container(
       decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: LinearGradient(
-            colors: [Color(0xFFDC336A), Color(0xFFEAA144)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          )),
-      padding: const EdgeInsets.all(4),
+        shape: BoxShape.circle,
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFFEAA144),
+            Color(0xFFDC336A),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      padding: const EdgeInsets.fromLTRB(4, 8, 4, 4),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Visibility(
-            visible: average == null,
-            child: const SizedBox(),
+          Text(
+            getFirstNumber(average),
+            style: const TextStyle(
+              fontSize: 24,
+              color: Colors.white,
+              height: 1,
+            ),
           ),
-          Text("${first}"),
-          Text("$after"),
+          Text(
+            ".${getLastNumber(average)}",
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.white,
+              height: 1.1,
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  String getFirstNumber(double? value) {
+    if (value != null) {
+      return value.toString().split(".")[0];
+    }
+    return "-";
+  }
+
+  String getLastNumber(double? value) {
+    if (value != null) {
+      return value.toString().split(".")[1];
+    }
+    return "-";
   }
 }

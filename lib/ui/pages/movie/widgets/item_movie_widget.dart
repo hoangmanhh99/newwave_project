@@ -20,6 +20,13 @@ class ItemMovieWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.16),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          )
+        ]
       ),
       child: Stack(
         alignment: Alignment.bottomLeft,
@@ -29,7 +36,9 @@ class ItemMovieWidget extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: imageUrl,
               errorWidget: (context, error, _) {
-                return const Icon(Icons.error);
+                return const Center(
+                  child: Icon(Icons.error),
+                );
               },
             ),
           ),

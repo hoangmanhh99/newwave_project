@@ -1,12 +1,11 @@
-import 'package:fl_paging/fl_paging.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:newwave_project/data/datasource/remote/base_api_service.dart';
-import 'package:newwave_project/domain/entity/movie_model.dart';
+import 'package:newwave_project/domain/entity/movie_dto.dart';
 import 'package:newwave_project/ui/pages/movie/datasource/movies_datasource.dart';
 import 'package:newwave_project/ui/pages/movie/widgets/item_movie_widget.dart';
 import 'package:newwave_project/utils/functions.dart';
 import 'dart:developer' as developer;
+
+import 'package:newwave_project/widgets/fl_paging/widgets/paging_grid_view.dart';
 
 class MoviesPage extends StatefulWidget {
   const MoviesPage({Key? key}) : super(key: key);
@@ -16,7 +15,7 @@ class MoviesPage extends StatefulWidget {
 }
 
 class _MoviesPageState extends State<MoviesPage> {
-  final GlobalKey key = GlobalKey();
+  final GlobalKey<GridViewState<MovieDto>> keyList = GlobalKey();
   late MoviesDataSource dataSource;
 
   @override
@@ -40,10 +39,7 @@ class _MoviesPageState extends State<MoviesPage> {
               floating: false,
               automaticallyImplyLeading: false,
               flexibleSpace: Container(
-                padding: const EdgeInsets.only(
-                  left: 16,
-                  top: 16
-                ),
+                padding: const EdgeInsets.only(left: 16, top: 16),
                 child: const Text(
                   "Popular list",
                   style: TextStyle(
@@ -55,15 +51,15 @@ class _MoviesPageState extends State<MoviesPage> {
             )
           ];
         },
-        body: PagingGridView<MovieModel>(
+        body: PagingGridView<MovieDto>(
           pageDataSource: dataSource,
-          key: key,
+          key: keyList,
           itemBuilder: (context, data, child) {
             return ItemMovieWidget(
               imageUrl: Functions.getImageUrl(data.posterPath ?? ""),
               year: "2000",
               name: data.originalTitle ?? "",
-              average: data.voteAverage,
+              average: data.voteAverage?.toDouble(),
             );
           },
           delegate: const SliverGridDelegateWithFixedCrossAxisCount(

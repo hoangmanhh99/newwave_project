@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'movie_model.dart';
+part of 'movie_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
+MovieDto _$MovieDtoFromJson(Map<String, dynamic> json) => MovieDto(
       adult: json['adult'] as bool?,
       backdropPath: json['backdrop_path'] as String?,
       genreIds:
@@ -19,12 +19,11 @@ MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
       releaseData: json['release_date'] as String?,
       title: json['title'] as String?,
       video: json['video'] as bool?,
-      voteAverage: (json['vote_average'] as num?)?.toDouble(),
+      voteAverage: json['vote_average'] as num?,
       voteCount: json['vote_count'] as int?,
     );
 
-Map<String, dynamic> _$MovieModelToJson(MovieModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$MovieDtoToJson(MovieDto instance) => <String, dynamic>{
       'adult': instance.adult,
       'backdrop_path': instance.backdropPath,
       'genre_ids': instance.genreIds,

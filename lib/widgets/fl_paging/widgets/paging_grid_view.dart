@@ -2,11 +2,11 @@ import 'dart:developer' as developer;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart' as widgets;
+import 'package:newwave_project/widgets/fl_paging/datasource/data_source.dart';
+import 'package:newwave_project/widgets/fl_paging/widgets/default/empty_widget.dart';
 
-import '../datasource/data_source.dart';
 import 'base_widget.dart';
 import 'builder.dart';
-import 'default/empty_widget.dart';
 import 'default/load_more_widget.dart';
 import 'default/paging_default_loading.dart';
 import 'paging_state.dart';
@@ -16,44 +16,46 @@ class PagingGridView<T> extends BaseWidget<T> {
   final SliverGridDelegate delegate;
   final bool isEnablePullToRefresh;
 
-  const PagingGridView(
+  PagingGridView(
       {Key? key,
-      this.padding,
-      required this.delegate,
-      this.isEnablePullToRefresh = true,
-      required ValueIndexWidgetBuilder<T> itemBuilder,
-      WidgetBuilder? emptyBuilder,
-      WidgetBuilder? loadingBuilder,
-      ErrorBuilder? errorBuilder,
-      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
-          ScrollViewKeyboardDismissBehavior.manual,
-      required DataSource<T> pageDataSource})
+        this.padding,
+        required this.delegate,
+        this.isEnablePullToRefresh = true,
+        required ValueIndexWidgetBuilder<T> itemBuilder,
+        WidgetBuilder? emptyBuilder,
+        WidgetBuilder? loadingBuilder,
+        ErrorBuilder? errorBuilder,
+        ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
+            ScrollViewKeyboardDismissBehavior.manual,
+        required DataSource<T> pageDataSource})
       : super(
-            itemBuilder: itemBuilder,
-            emptyBuilder: emptyBuilder,
-            loadingBuilder: loadingBuilder,
-            errorBuilder: errorBuilder,
-            keyboardDismissBehavior: keyboardDismissBehavior,
-            pageDataSource: pageDataSource,
-            key: key);
+      itemBuilder: itemBuilder,
+      emptyBuilder: emptyBuilder,
+      loadingBuilder: loadingBuilder,
+      errorBuilder: errorBuilder,
+      keyboardDismissBehavior: keyboardDismissBehavior,
+      pageDataSource: pageDataSource,
+      key: key);
 
   @override
   GridViewState<T> createState() => GridViewState<T>();
 }
 
 class GridViewState<T> extends State<PagingGridView<T>> {
-  PagingState<T> _pagingState = const PagingState.loading();
+  static const TAG = 'GridView';
+
+  PagingState<T> _pagingState = PagingState.loading();
 
   void retry() {
     _loadPage(isRefresh: false);
   }
 
   Future _loadPage({bool isRefresh = false}) async {
-    developer.log('_loadPage [isRefresh]: [$isRefresh]');
+    developer.log('_loadPage [isRefresh]: [$isRefresh]', name: TAG);
     if (isRefresh == true) {
       try {
         final value =
-            await widget.pageDataSource.loadPage(isRefresh: isRefresh);
+        await widget.pageDataSource.loadPage(isRefresh: isRefresh);
         setState(() {
           _pagingState =
               PagingState(value, false, widget.pageDataSource.isEndList);
@@ -78,13 +80,13 @@ class GridViewState<T> extends State<PagingGridView<T>> {
       } else {
         if (_pagingState is PagingStateError<T>) {
           setState(() {
-            _pagingState = const PagingState.loading();
+            _pagingState = PagingState.loading();
           });
         }
         widget.pageDataSource.loadPage().then((value) {
           final oldState = (_pagingState as PagingStateData);
           setState(() {
-            if (value.isEmpty) {
+            if (value.length == 0) {
               _pagingState = oldState.copyWith
                   .call(isLoadMore: false, isEndList: true) as PagingState<T>;
             } else {
@@ -119,7 +121,7 @@ class GridViewState<T> extends State<PagingGridView<T>> {
     if (widget.delegate is SliverGridDelegateWithFixedCrossAxisCount &&
         oldWidget.delegate is SliverGridDelegateWithFixedCrossAxisCount) {
       if ((widget.delegate as SliverGridDelegateWithFixedCrossAxisCount)
-              .childAspectRatio !=
+          .childAspectRatio !=
           (oldWidget.delegate as SliverGridDelegateWithFixedCrossAxisCount)
               .childAspectRatio) {
         setState(() {});
@@ -128,13 +130,20 @@ class GridViewState<T> extends State<PagingGridView<T>> {
   }
 
   @override
+  void setState(fn) {
+    if(mounted) {
+      super.setState(fn);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return _pagingState.when((datas, isLoadMore, isEndList) {
-      if (datas.isEmpty) {
+      if (datas.length == 0) {
         if (widget.emptyBuilder != null) {
           return widget.emptyBuilder!(context);
         } else {
-          return const EmptyWidget();
+          return EmptyWidget();
         }
       } else {
         Widget child = widgets.SliverGrid(
@@ -152,7 +161,7 @@ class GridViewState<T> extends State<PagingGridView<T>> {
                 sliver: child,
               ),
               if (!isEndList)
-                const SliverToBoxAdapter(
+                SliverToBoxAdapter(
                   child: LoadMoreWidget(),
                 )
             ],
@@ -191,7 +200,7 @@ class GridViewState<T> extends State<PagingGridView<T>> {
       if (widget.loadingBuilder != null) {
         return widget.loadingBuilder!(context);
       } else {
-        return const PagingDefaultLoading();
+        return PagingDefaultLoading();
       }
     }, error: (error) {
       if (widget.errorBuilder != null) {

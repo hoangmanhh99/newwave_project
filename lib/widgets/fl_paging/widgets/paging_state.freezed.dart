@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'paging_state.dart';
 
@@ -10,33 +12,7 @@ part of 'paging_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PagingStateTearOff {
-  const _$PagingStateTearOff();
-
-  PagingStateData<D> call<D>(List<D> datas, bool isLoadMore, bool isEndList) {
-    return PagingStateData<D>(
-      datas,
-      isLoadMore,
-      isEndList,
-    );
-  }
-
-  PagingStateLoading<D> loading<D>() {
-    return PagingStateLoading<D>();
-  }
-
-  PagingStateError<D> error<D>(dynamic error) {
-    return PagingStateError<D>(
-      error,
-    );
-  }
-}
-
-/// @nodoc
-const $PagingState = _$PagingStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PagingState<D> {
@@ -45,6 +21,14 @@ mixin _$PagingState<D> {
     TResult Function(List<D> datas, bool isLoadMore, bool isEndList) $default, {
     required TResult Function() loading,
     required TResult Function(dynamic error) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(List<D> datas, bool isLoadMore, bool isEndList)?
+        $default, {
+    TResult? Function()? loading,
+    TResult? Function(dynamic error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +48,13 @@ mixin _$PagingState<D> {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(PagingStateData<D> value)? $default, {
+    TResult? Function(PagingStateLoading<D> value)? loading,
+    TResult? Function(PagingStateError<D> value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(PagingStateData<D> value)? $default, {
     TResult Function(PagingStateLoading<D> value)? loading,
@@ -77,54 +68,54 @@ mixin _$PagingState<D> {
 abstract class $PagingStateCopyWith<D, $Res> {
   factory $PagingStateCopyWith(
           PagingState<D> value, $Res Function(PagingState<D>) then) =
-      _$PagingStateCopyWithImpl<D, $Res>;
+      _$PagingStateCopyWithImpl<D, $Res, PagingState<D>>;
 }
 
 /// @nodoc
-class _$PagingStateCopyWithImpl<D, $Res>
+class _$PagingStateCopyWithImpl<D, $Res, $Val extends PagingState<D>>
     implements $PagingStateCopyWith<D, $Res> {
   _$PagingStateCopyWithImpl(this._value, this._then);
 
-  final PagingState<D> _value;
   // ignore: unused_field
-  final $Res Function(PagingState<D>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $PagingStateDataCopyWith<D, $Res> {
-  factory $PagingStateDataCopyWith(
-          PagingStateData<D> value, $Res Function(PagingStateData<D>) then) =
-      _$PagingStateDataCopyWithImpl<D, $Res>;
+abstract class _$$PagingStateDataCopyWith<D, $Res> {
+  factory _$$PagingStateDataCopyWith(_$PagingStateData<D> value,
+          $Res Function(_$PagingStateData<D>) then) =
+      __$$PagingStateDataCopyWithImpl<D, $Res>;
+  @useResult
   $Res call({List<D> datas, bool isLoadMore, bool isEndList});
 }
 
 /// @nodoc
-class _$PagingStateDataCopyWithImpl<D, $Res>
-    extends _$PagingStateCopyWithImpl<D, $Res>
-    implements $PagingStateDataCopyWith<D, $Res> {
-  _$PagingStateDataCopyWithImpl(
-      PagingStateData<D> _value, $Res Function(PagingStateData<D>) _then)
-      : super(_value, (v) => _then(v as PagingStateData<D>));
+class __$$PagingStateDataCopyWithImpl<D, $Res>
+    extends _$PagingStateCopyWithImpl<D, $Res, _$PagingStateData<D>>
+    implements _$$PagingStateDataCopyWith<D, $Res> {
+  __$$PagingStateDataCopyWithImpl(
+      _$PagingStateData<D> _value, $Res Function(_$PagingStateData<D>) _then)
+      : super(_value, _then);
 
-  @override
-  PagingStateData<D> get _value => super._value as PagingStateData<D>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? datas = freezed,
-    Object? isLoadMore = freezed,
-    Object? isEndList = freezed,
+    Object? datas = null,
+    Object? isLoadMore = null,
+    Object? isEndList = null,
   }) {
-    return _then(PagingStateData<D>(
-      datas == freezed
+    return _then(_$PagingStateData<D>(
+      null == datas
           ? _value.datas
           : datas // ignore: cast_nullable_to_non_nullable
               as List<D>,
-      isLoadMore == freezed
+      null == isLoadMore
           ? _value.isLoadMore
           : isLoadMore // ignore: cast_nullable_to_non_nullable
               as bool,
-      isEndList == freezed
+      null == isEndList
           ? _value.isEndList
           : isEndList // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -133,6 +124,7 @@ class _$PagingStateDataCopyWithImpl<D, $Res>
 }
 
 /// @nodoc
+
 class _$PagingStateData<D> implements PagingStateData<D> {
   const _$PagingStateData(this.datas, this.isLoadMore, this.isEndList);
 
@@ -151,28 +143,25 @@ class _$PagingStateData<D> implements PagingStateData<D> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is PagingStateData<D> &&
-            (identical(other.datas, datas) ||
-                const DeepCollectionEquality().equals(other.datas, datas)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$PagingStateData<D> &&
+            const DeepCollectionEquality().equals(other.datas, datas) &&
             (identical(other.isLoadMore, isLoadMore) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLoadMore, isLoadMore)) &&
+                other.isLoadMore == isLoadMore) &&
             (identical(other.isEndList, isEndList) ||
-                const DeepCollectionEquality()
-                    .equals(other.isEndList, isEndList)));
+                other.isEndList == isEndList));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(datas) ^
-      const DeepCollectionEquality().hash(isLoadMore) ^
-      const DeepCollectionEquality().hash(isEndList);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(datas), isLoadMore, isEndList);
 
   @JsonKey(ignore: true)
   @override
-  $PagingStateDataCopyWith<D, PagingStateData<D>> get copyWith =>
-      _$PagingStateDataCopyWithImpl<D, PagingStateData<D>>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PagingStateDataCopyWith<D, _$PagingStateData<D>> get copyWith =>
+      __$$PagingStateDataCopyWithImpl<D, _$PagingStateData<D>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -182,6 +171,17 @@ class _$PagingStateData<D> implements PagingStateData<D> {
     required TResult Function(dynamic error) error,
   }) {
     return $default(datas, isLoadMore, isEndList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(List<D> datas, bool isLoadMore, bool isEndList)?
+        $default, {
+    TResult? Function()? loading,
+    TResult? Function(dynamic error)? error,
+  }) {
+    return $default?.call(datas, isLoadMore, isEndList);
   }
 
   @override
@@ -211,6 +211,16 @@ class _$PagingStateData<D> implements PagingStateData<D> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(PagingStateData<D> value)? $default, {
+    TResult? Function(PagingStateLoading<D> value)? loading,
+    TResult? Function(PagingStateError<D> value)? error,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(PagingStateData<D> value)? $default, {
     TResult Function(PagingStateLoading<D> value)? loading,
@@ -226,36 +236,35 @@ class _$PagingStateData<D> implements PagingStateData<D> {
 
 abstract class PagingStateData<D> implements PagingState<D> {
   const factory PagingStateData(
-      List<D> datas, bool isLoadMore, bool isEndList) = _$PagingStateData<D>;
+          final List<D> datas, final bool isLoadMore, final bool isEndList) =
+      _$PagingStateData<D>;
 
-  List<D> get datas => throw _privateConstructorUsedError;
-  bool get isLoadMore => throw _privateConstructorUsedError;
-  bool get isEndList => throw _privateConstructorUsedError;
+  List<D> get datas;
+  bool get isLoadMore;
+  bool get isEndList;
   @JsonKey(ignore: true)
-  $PagingStateDataCopyWith<D, PagingStateData<D>> get copyWith =>
+  _$$PagingStateDataCopyWith<D, _$PagingStateData<D>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PagingStateLoadingCopyWith<D, $Res> {
-  factory $PagingStateLoadingCopyWith(PagingStateLoading<D> value,
-          $Res Function(PagingStateLoading<D>) then) =
-      _$PagingStateLoadingCopyWithImpl<D, $Res>;
+abstract class _$$PagingStateLoadingCopyWith<D, $Res> {
+  factory _$$PagingStateLoadingCopyWith(_$PagingStateLoading<D> value,
+          $Res Function(_$PagingStateLoading<D>) then) =
+      __$$PagingStateLoadingCopyWithImpl<D, $Res>;
 }
 
 /// @nodoc
-class _$PagingStateLoadingCopyWithImpl<D, $Res>
-    extends _$PagingStateCopyWithImpl<D, $Res>
-    implements $PagingStateLoadingCopyWith<D, $Res> {
-  _$PagingStateLoadingCopyWithImpl(
-      PagingStateLoading<D> _value, $Res Function(PagingStateLoading<D>) _then)
-      : super(_value, (v) => _then(v as PagingStateLoading<D>));
-
-  @override
-  PagingStateLoading<D> get _value => super._value as PagingStateLoading<D>;
+class __$$PagingStateLoadingCopyWithImpl<D, $Res>
+    extends _$PagingStateCopyWithImpl<D, $Res, _$PagingStateLoading<D>>
+    implements _$$PagingStateLoadingCopyWith<D, $Res> {
+  __$$PagingStateLoadingCopyWithImpl(_$PagingStateLoading<D> _value,
+      $Res Function(_$PagingStateLoading<D>) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
+
 class _$PagingStateLoading<D> implements PagingStateLoading<D> {
   const _$PagingStateLoading();
 
@@ -266,7 +275,8 @@ class _$PagingStateLoading<D> implements PagingStateLoading<D> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is PagingStateLoading<D>);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PagingStateLoading<D>);
   }
 
   @override
@@ -280,6 +290,17 @@ class _$PagingStateLoading<D> implements PagingStateLoading<D> {
     required TResult Function(dynamic error) error,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(List<D> datas, bool isLoadMore, bool isEndList)?
+        $default, {
+    TResult? Function()? loading,
+    TResult? Function(dynamic error)? error,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -309,6 +330,16 @@ class _$PagingStateLoading<D> implements PagingStateLoading<D> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(PagingStateData<D> value)? $default, {
+    TResult? Function(PagingStateLoading<D> value)? loading,
+    TResult? Function(PagingStateError<D> value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(PagingStateData<D> value)? $default, {
     TResult Function(PagingStateLoading<D> value)? loading,
@@ -327,30 +358,29 @@ abstract class PagingStateLoading<D> implements PagingState<D> {
 }
 
 /// @nodoc
-abstract class $PagingStateErrorCopyWith<D, $Res> {
-  factory $PagingStateErrorCopyWith(
-          PagingStateError<D> value, $Res Function(PagingStateError<D>) then) =
-      _$PagingStateErrorCopyWithImpl<D, $Res>;
+abstract class _$$PagingStateErrorCopyWith<D, $Res> {
+  factory _$$PagingStateErrorCopyWith(_$PagingStateError<D> value,
+          $Res Function(_$PagingStateError<D>) then) =
+      __$$PagingStateErrorCopyWithImpl<D, $Res>;
+  @useResult
   $Res call({dynamic error});
 }
 
 /// @nodoc
-class _$PagingStateErrorCopyWithImpl<D, $Res>
-    extends _$PagingStateCopyWithImpl<D, $Res>
-    implements $PagingStateErrorCopyWith<D, $Res> {
-  _$PagingStateErrorCopyWithImpl(
-      PagingStateError<D> _value, $Res Function(PagingStateError<D>) _then)
-      : super(_value, (v) => _then(v as PagingStateError<D>));
+class __$$PagingStateErrorCopyWithImpl<D, $Res>
+    extends _$PagingStateCopyWithImpl<D, $Res, _$PagingStateError<D>>
+    implements _$$PagingStateErrorCopyWith<D, $Res> {
+  __$$PagingStateErrorCopyWithImpl(
+      _$PagingStateError<D> _value, $Res Function(_$PagingStateError<D>) _then)
+      : super(_value, _then);
 
-  @override
-  PagingStateError<D> get _value => super._value as PagingStateError<D>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(PagingStateError<D>(
-      error == freezed
+    return _then(_$PagingStateError<D>(
+      freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -359,6 +389,7 @@ class _$PagingStateErrorCopyWithImpl<D, $Res>
 }
 
 /// @nodoc
+
 class _$PagingStateError<D> implements PagingStateError<D> {
   const _$PagingStateError(this.error);
 
@@ -373,19 +404,21 @@ class _$PagingStateError<D> implements PagingStateError<D> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is PagingStateError<D> &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)));
+        (other.runtimeType == runtimeType &&
+            other is _$PagingStateError<D> &&
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
 
   @JsonKey(ignore: true)
   @override
-  $PagingStateErrorCopyWith<D, PagingStateError<D>> get copyWith =>
-      _$PagingStateErrorCopyWithImpl<D, PagingStateError<D>>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PagingStateErrorCopyWith<D, _$PagingStateError<D>> get copyWith =>
+      __$$PagingStateErrorCopyWithImpl<D, _$PagingStateError<D>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -395,6 +428,17 @@ class _$PagingStateError<D> implements PagingStateError<D> {
     required TResult Function(dynamic error) error,
   }) {
     return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(List<D> datas, bool isLoadMore, bool isEndList)?
+        $default, {
+    TResult? Function()? loading,
+    TResult? Function(dynamic error)? error,
+  }) {
+    return error?.call(this.error);
   }
 
   @override
@@ -424,6 +468,16 @@ class _$PagingStateError<D> implements PagingStateError<D> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(PagingStateData<D> value)? $default, {
+    TResult? Function(PagingStateLoading<D> value)? loading,
+    TResult? Function(PagingStateError<D> value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(PagingStateData<D> value)? $default, {
     TResult Function(PagingStateLoading<D> value)? loading,
@@ -438,10 +492,10 @@ class _$PagingStateError<D> implements PagingStateError<D> {
 }
 
 abstract class PagingStateError<D> implements PagingState<D> {
-  const factory PagingStateError(dynamic error) = _$PagingStateError<D>;
+  const factory PagingStateError(final dynamic error) = _$PagingStateError<D>;
 
-  dynamic get error => throw _privateConstructorUsedError;
+  dynamic get error;
   @JsonKey(ignore: true)
-  $PagingStateErrorCopyWith<D, PagingStateError<D>> get copyWith =>
+  _$$PagingStateErrorCopyWith<D, _$PagingStateError<D>> get copyWith =>
       throw _privateConstructorUsedError;
 }
